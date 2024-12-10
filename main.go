@@ -53,24 +53,7 @@ func validateProxyURL(proxyURL string) bool {
 
 // List of available profiles from the tls-client profiles package
 var profileList = []profiles.ClientProfile{
-	profiles.Chrome_117,
-	profiles.Chrome_120,
-	profiles.Chrome_124,
-	profiles.Safari_15_6_1,
-	profiles.Safari_16_0,
-	profiles.Safari_Ipad_15_6,
-	profiles.Safari_IOS_16_0,
-	profiles.Safari_IOS_17_0,
-	profiles.Firefox_117,
-	profiles.Firefox_120,
-	profiles.Firefox_123,
-	profiles.Opera_89,
-	profiles.Opera_90,
-	profiles.Opera_91,
-	profiles.Okhttp4Android10,
-	profiles.Okhttp4Android11,
-	profiles.Okhttp4Android12,
-	profiles.Okhttp4Android13,
+	profiles.Chrome_131,
 }
 
 func init() {
@@ -98,7 +81,6 @@ func createClient(w fhttp.ResponseWriter, r *fhttp.Request) {
 		tls_client.WithTimeoutSeconds(60),
 		tls_client.WithClientProfile(profile),
 		tls_client.WithProxyUrl(proxyURL),
-		tls_client.WithRandomTLSExtensionOrder(),
 		tls_client.WithNotFollowRedirects(),
 	}
 	client, err := tls_client.NewHttpClient(tls_client.NewNoopLogger(), options...)
